@@ -1,5 +1,5 @@
-import React, {useCallback} from 'react';
-import {Animated, StyleSheet, Text, useWindowDimensions, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, useWindowDimensions, View} from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
 const FirstRoute = () => (
@@ -40,7 +40,7 @@ export default function App() {
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={{width: layout.width}}
-        renderTabBar={props => (<TabBar {...props} indicatorStyle={{backgroundColor: 'black', height: '100%'}}/>)}
+        renderTabBar={props => (<TabBar {...props} indicatorStyle={styles.indicator}/>)}
       />
     </View>
   );
@@ -54,12 +54,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 100
   },
-  tabView: {
-    backgroundColor: '#f55'
-  },
   indicator: {
     backgroundColor: 'black',
-    width: 50,
-    height: 50
+    height: '100%'
   }
 });
